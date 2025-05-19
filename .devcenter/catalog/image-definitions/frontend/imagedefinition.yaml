@@ -21,4 +21,6 @@ tasks:
   - name: powershell
     parameters:
       command: |
-        $env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User') 
+        $env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User')
+        Start-Process msiexec -argumentlist " /i \\vm-dev-auea-dc0\DOWNLOADS\azure-cli.msi /qn"
+        
