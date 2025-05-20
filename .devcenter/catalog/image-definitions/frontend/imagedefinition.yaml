@@ -27,7 +27,7 @@ tasks:
     parameters: 
       command: |
         # Define URL to raw PowerShell script in GitHub
-        $scriptUrl = "https://github.com/code2gnana/PowerShell-Scripts/blob/main/install-azcli.ps1"
+        $scriptUrl = "https://raw.githubusercontent.com/code2gnana/PowerShell-Scripts/refs/heads/main/install-azcli.ps1"
         $scriptPath = "$env:TEMP\install-azcli.ps1"
         
         # Download the script
