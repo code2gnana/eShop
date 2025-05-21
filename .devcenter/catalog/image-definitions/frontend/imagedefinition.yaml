@@ -30,6 +30,8 @@ tasks:
         New-PSDrive -Name P -PSProvider FileSystem -Root "\\vm-dev-auea-dc0\DOWNLOADS\"
         copy-item P:\azure-cli.msi c:\Temp\azure-cli.msi
         Start-Process msiexec.exe -ArgumentList '/i', 'C:\Temp\azure-cli.msi', '/qn', '/norestart' -Wait -NoNewWindow
+        copy-item P:\chrome.msi c:\Temp\chrome.msi
+        Start-Process msiexec.exe -ArgumentList '/i', 'C:\Temp\chrome.msi', '/qn', '/norestart' -Wait -NoNewWindow
 
   - name: powershell 
     parameters: 
