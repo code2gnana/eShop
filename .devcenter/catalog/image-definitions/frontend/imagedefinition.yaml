@@ -28,10 +28,18 @@ tasks:
       command: |
         # Define URL to raw PowerShell script in GitHub
         $scriptUrl = "https://raw.githubusercontent.com/code2gnana/PowerShell-Scripts/refs/heads/main/install-azcli.ps1"
-        $scriptPath = "$env:TEMP\install-azcli.ps1"
-        
+        $scriptPath = "C:\TEMP\install-azcli.ps1"
         # Download the script
         Invoke-WebRequest -Uri $scriptUrl -OutFile $scriptPath
-        
         # Execute the script
         & $scriptPath
+
+  - name: powershell 
+    parameters: 
+      command: |
+        New-PSDrive -Name P -PSProvider FileSystem -Root "\\vm-dev-auea-dc0\DOWNLOADS\"
+
+  - name: powershell 
+    parameters: 
+      command: |
+        Start-Process powershell -Verb runAs -ArgumentList "-NoProfile -File `"$PSCommandPath`""
